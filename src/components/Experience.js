@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Input from "./utilities/InputBox";
 
-export default class PersonalSection extends Component {
+// TODO Experience H2 Exp-set, Add btn
+export default class Experience extends Component {
   render() {
     return (
       <section>
