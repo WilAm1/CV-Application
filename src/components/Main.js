@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Experience from "./Experience";
 import PersonalSection from "./PersonalInfo";
 import Preview from "./Preview/Preview";
+import uniqid from "uniqid";
 
 // * Add state to personal information(as it is not replicable)
 // * Modify Handle InputChange
-// *
 // * Add Section dedicated for Personal Information/Details
 // TODO Array state for Work Experience and Education
 // TODO Add Input data to the Preview
@@ -27,8 +28,32 @@ export default class Main extends Component {
       experience: [],
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddWork = this.handleAddWork.bind(this);
+    this.expInfo = {
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      id: "",
+    };
   }
 
+  addExpEntry() {
+    this.setState(
+      {
+        experience: this.state.experience.concat({
+          ...this.expInfo,
+          id: uniqid(),
+        }),
+      },
+      () => console.log(this.state.experience)
+    );
+  }
+
+  handleAddWork() {
+    this.addExpEntry();
+  }
   handleInputChange(event) {
     const { name, value } = event.target;
     this.setState({
@@ -43,6 +68,10 @@ export default class Main extends Component {
         <PersonalSection
           data={this.state.personalInfo}
           handleChange={this.handleInputChange}
+        />
+        <Experience
+          handleAddWork={this.handleAddWork}
+          experience={this.state.experience}
         />
         <Preview personalInfo={this.state.personalInfo} />
       </div>
