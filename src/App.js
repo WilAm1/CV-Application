@@ -1,34 +1,51 @@
 import React, { Component } from "react";
-import InputBox from "./components/utilities/InputBox";
+import PersonalSection from "./components/PersonalInfo";
 import Header from "./components/Header";
 import Preview from "./components/Preview/Preview";
+
+// TODO Add state to personal information(as it is not replicable)
+// TODO Modify Handle InputChange
+// TODO Add Section dedicated for Personal Information/Details
+// TODO Add Input data to the Preview
+// TODO Array state for Work Experience and Education
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: {
-        text: "",
+      personalInfo: {
+        lName: "",
+        fName: "",
+        mName: "",
+        jobTitle: "",
+        address: "",
+        number: "",
+        email: "",
+        description: "",
       },
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
-  handleChange({ target }) {
+
+  handleInputChange(event) {
+    const { name, value } = event.target;
     this.setState({
-      input: {
-        text: target.value,
-      },
+      // Or use ...spread operator
+      personalInfo: Object.assign({}, this.state.personalInfo, {
+        [name]: value,
+      }),
     });
   }
+
   render() {
     return (
       <div>
         <Header />
-        <InputBox
-          value={this.state.input.text}
-          handleChange={this.handleChange}
+        <PersonalSection
+          data={this.state.personalInfo}
+          handleChange={this.handleInputChange}
         />
-        <Preview value={this.state.input.text} />
+        <Preview value={this.state.personalInfo.lName.text} />
       </div>
     );
   }
