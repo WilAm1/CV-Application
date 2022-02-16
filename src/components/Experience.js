@@ -12,7 +12,12 @@ export default class Experience extends Component {
       <section>
         <h3>Work Experience</h3>
         {this.props.experience.map((obj, idx) => (
-          <ExperienceSet experience={obj} data-idx={idx} key={obj.id} />
+          <ExperienceSet
+            experience={obj}
+            idx={idx}
+            key={obj.id}
+            handleChange={this.props.handleWorkChange}
+          />
         ))}
         <button onClick={this.props.handleAddWork}>Add</button>
       </section>

@@ -29,6 +29,7 @@ export default class Main extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleAddWork = this.handleAddWork.bind(this);
+    this.handleWorkChange = this.handleWorkChange.bind(this);
     this.expInfo = {
       company: "",
       position: "",
@@ -40,20 +41,27 @@ export default class Main extends Component {
   }
 
   addExpEntry() {
-    this.setState(
-      {
-        experience: this.state.experience.concat({
-          ...this.expInfo,
-          id: uniqid(),
-        }),
-      },
-      () => console.log(this.state.experience)
-    );
+    this.setState({
+      experience: this.state.experience.concat({
+        ...this.expInfo,
+        id: uniqid(),
+      }),
+    });
   }
 
   handleAddWork() {
     this.addExpEntry();
   }
+
+  handleWorkChange({ target }, idx) {
+    const { value, name } = target;
+    const expArray = this.state.experience.slice();
+    expArray[idx] = { ...this.state.experience[idx], [name]: value };
+    this.setState({
+      experience: expArray,
+    });
+  }
+
   handleInputChange(event) {
     const { name, value } = event.target;
     this.setState({
@@ -72,6 +80,7 @@ export default class Main extends Component {
         <Experience
           handleAddWork={this.handleAddWork}
           experience={this.state.experience}
+          handleWorkChange={this.handleWorkChange}
         />
         <Preview personalInfo={this.state.personalInfo} />
       </div>
