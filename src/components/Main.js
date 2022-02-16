@@ -44,7 +44,7 @@ export default class Main extends Component {
           data={this.state.personalInfo}
           handleChange={this.handleInputChange}
         />
-        <Preview value={this.state.personalInfo.lName.text} />
+        <Preview personalInfo={this.state.personalInfo} />
       </div>
     );
   }

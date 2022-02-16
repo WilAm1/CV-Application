@@ -1,14 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Preview extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <section id="preview-form">
-        <div>{this.props.value}</div>
-      </section>
-    );
-  }
+export default function Preview({ personalInfo }) {
+  return (
+    <section id="preview-form">
+      <h1>
+        {personalInfo.lName +
+          " " +
+          personalInfo.fName +
+          " " +
+          personalInfo.mName}
+      </h1>
+      <h2>{personalInfo.jobTitle}</h2>
+      <div className="personal-details">
+        <p>{personalInfo.address}</p>
+        <p>{personalInfo.number}</p>
+        <p>{personalInfo.email}</p>
+      </div>
+    </section>
+  );
 }
