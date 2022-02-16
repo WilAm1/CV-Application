@@ -82,7 +82,10 @@ export default class Main extends Component {
           experience={this.state.experience}
           handleWorkChange={this.handleWorkChange}
         />
-        <Preview personalInfo={this.state.personalInfo} />
+        <Preview
+          personalInfo={this.state.personalInfo}
+          experience={this.state.experience}
+        />
       </div>
     );
   }
