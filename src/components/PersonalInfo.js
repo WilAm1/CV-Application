@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Input from "./utilities/InputBox";
+import TextArea from "./utilities/TextArea";
 
 export default class PersonalSection extends Component {
   render() {
@@ -47,6 +48,13 @@ export default class PersonalSection extends Component {
           placeholder={"Phone Number"}
           type={"number"}
           name={"number"}
+        />
+
+        <TextArea
+          value={this.props.data.description}
+          handleChange={this.props.handleChange}
+          placeholder={"Tells us about Yourself"}
+          name={"description"}
         />
       </section>
     );

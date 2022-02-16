@@ -11,6 +11,7 @@ export default function Preview({ personalInfo }) {
           personalInfo.mName}
       </h1>
       <h2>{personalInfo.jobTitle}</h2>
+      <p>{personalInfo.description}</p>
       <div className="personal-details">
         <p>{personalInfo.address}</p>
         <p>{personalInfo.number}</p>
