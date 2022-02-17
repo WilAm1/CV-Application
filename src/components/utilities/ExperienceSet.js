@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Input from "./utilities/InputBox";
-import TextArea from "./utilities/TextArea";
+import Input from "./InputBox";
+import TextArea from "./TextArea";
 
 export default class ExperienceSet extends Component {
   render() {

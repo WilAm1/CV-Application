@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Experience from "./Experience";
 import PersonalSection from "./PersonalInfo";
+import Education from "./Education";
 import Preview from "./Preview/Preview";
 import uniqid from "uniqid";
 
@@ -9,12 +10,35 @@ import uniqid from "uniqid";
 // * Add Section dedicated for Personal Information/Details
 // TODO Array state for Work Experience and Education
 // TODO Education
-// TODO Add Input data to the Preview
 // TODO Add Styles
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddWork = this.handleAddWork.bind(this);
+    this.handleWorkChange = this.handleWorkChange.bind(this);
+    this.handleDeleteWork = this.handleDeleteWork.bind(this);
+    this.handleAddEducation = this.handleAddEducation.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleDeleteEducation = this.handleDeleteEducation.bind(this);
+    this.expInfo = {
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      id: "",
+    };
+    this.educInfo = {
+      course: "",
+      university: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      id: "",
+    };
+
     this.state = {
       personalInfo: {
         lName: "",
@@ -26,20 +50,8 @@ export default class Main extends Component {
         email: "",
         description: "",
       },
-      education: [],
-      experience: [],
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleAddWork = this.handleAddWork.bind(this);
-    this.handleWorkChange = this.handleWorkChange.bind(this);
-    this.handleDeleteWork = this.handleDeleteWork.bind(this);
-    this.expInfo = {
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      id: "",
+      education: [this.educInfo],
+      experience: [this.expInfo],
     };
   }
 
@@ -60,11 +72,38 @@ export default class Main extends Component {
       experience: expArray,
     });
   }
+
   handleDeleteWork(idx) {
     const expArray = this.state.experience.slice();
     expArray.splice(idx, 1);
     this.setState({
       experience: expArray,
+    });
+  }
+
+  handleAddEducation() {
+    this.setState({
+      education: this.state.education.concat({
+        ...this.educInfo,
+        id: uniqid(),
+      }),
+    });
+  }
+
+  handleEducationChange({ target }, idx) {
+    const { value, name } = target;
+    const expArray = this.state.education.slice();
+    expArray[idx] = { ...this.state.education[idx], [name]: value };
+    this.setState({
+      education: expArray,
+    });
+  }
+
+  handleDeleteEducation(idx) {
+    const expArray = this.state.education.slice();
+    expArray.splice(idx, 1);
+    this.setState({
+      education: expArray,
     });
   }
 
@@ -89,9 +128,17 @@ export default class Main extends Component {
           handleWorkChange={this.handleWorkChange}
           handleDeleteWork={this.handleDeleteWork}
         />
+        <Education
+          education={this.state.education}
+          handleAddEducation={this.handleAddEducation}
+          handleEducationChange={this.handleEducationChange}
+          handleDeleteEducation={this.handleDeleteEducation}
+        />
+
         <Preview
           person={this.state.personalInfo}
           experience={this.state.experience}
+          education={this.state.education}
         />
       </div>
     );

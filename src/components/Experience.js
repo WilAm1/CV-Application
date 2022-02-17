@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import ExperienceSet from "./ExperienceSet";
-
-// * Experience will render the array of Experience Sets
-// TODO Add Button -> updates the work array (Adds another entry)
-// TODO Make map function -> ExperienceSet
-// TODO  - Add Delete Button (Use filter / Slice(req IDX))
+import ExperienceSet from "./utilities/ExperienceSet";
 
 export default class Experience extends Component {
   constructor(props) {
