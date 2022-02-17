@@ -7,6 +7,13 @@ import ExperienceSet from "./ExperienceSet";
 // TODO  - Add Delete Button (Use filter / Slice(req IDX))
 
 export default class Experience extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event, idx) {
+    this.props.handleWorkChange(event, idx);
+  }
   render() {
     return (
       <section>
@@ -16,7 +23,8 @@ export default class Experience extends Component {
             experience={obj}
             idx={idx}
             key={obj.id}
-            handleChange={this.props.handleWorkChange}
+            handleChange={(e) => this.handleChange(e, idx)}
+            handleClick={() => this.props.handleDeleteWork(idx)}
           />
         ))}
         <button onClick={this.props.handleAddWork}>Add</button>
