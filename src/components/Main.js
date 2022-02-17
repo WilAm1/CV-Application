@@ -5,13 +5,6 @@ import Education from "./Education";
 import Preview from "./Preview/Preview";
 import uniqid from "uniqid";
 
-// * Add state to personal information(as it is not replicable)
-// * Modify Handle InputChange
-// * Add Section dedicated for Personal Information/Details
-// TODO Array state for Work Experience and Education
-// TODO Education
-// TODO Add Styles
-
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +47,11 @@ export default class Main extends Component {
       experience: [this.expInfo],
     };
   }
-
+  componentDidMount() {
+    this.setState({
+      ...this.props.staticModel,
+    });
+  }
   handleAddWork() {
     this.setState({
       experience: this.state.experience.concat({
@@ -117,30 +114,31 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div>
-        <PersonalSection
-          data={this.state.personalInfo}
-          handleChange={this.handleInputChange}
-        />
-        <Experience
-          handleAddWork={this.handleAddWork}
-          experience={this.state.experience}
-          handleWorkChange={this.handleWorkChange}
-          handleDeleteWork={this.handleDeleteWork}
-        />
-        <Education
-          education={this.state.education}
-          handleAddEducation={this.handleAddEducation}
-          handleEducationChange={this.handleEducationChange}
-          handleDeleteEducation={this.handleDeleteEducation}
-        />
-
+      <main>
+        <section id="form">
+          <PersonalSection
+            data={this.state.personalInfo}
+            handleChange={this.handleInputChange}
+          />
+          <Experience
+            handleAddWork={this.handleAddWork}
+            experience={this.state.experience}
+            handleWorkChange={this.handleWorkChange}
+            handleDeleteWork={this.handleDeleteWork}
+          />
+          <Education
+            education={this.state.education}
+            handleAddEducation={this.handleAddEducation}
+            handleEducationChange={this.handleEducationChange}
+            handleDeleteEducation={this.handleDeleteEducation}
+          />
+        </section>
         <Preview
           person={this.state.personalInfo}
           experience={this.state.experience}
           education={this.state.education}
         />
-      </div>
+      </main>
     );
   }
 }

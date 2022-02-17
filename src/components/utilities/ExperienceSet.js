@@ -7,7 +7,7 @@ export default class ExperienceSet extends Component {
     const { company, position, startDate, endDate, description } =
       this.props.experience;
     return (
-      <div>
+      <div className="inputs-container">
         <Input
           value={company}
           handleChange={this.props.handleChange}
@@ -42,7 +42,9 @@ export default class ExperienceSet extends Component {
           placeholder={"Tells us about your work"}
           name={"description"}
         />
-        <button onClick={this.props.handleClick}>Delete</button>
+        <button onClick={this.props.handleClick} className="delete-btn">
+          Delete
+        </button>
       </div>
     );
   }

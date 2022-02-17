@@ -11,7 +11,7 @@ export default class Experience extends Component {
   }
   render() {
     return (
-      <section>
+      <section id="experience-section">
         <h3>Work Experience</h3>
         {this.props.experience.map((obj, idx) => (
           <ExperienceSet
@@ -22,7 +22,9 @@ export default class Experience extends Component {
             handleClick={() => this.props.handleDeleteWork(idx)}
           />
         ))}
-        <button onClick={this.props.handleAddWork}>Add</button>
+        <button onClick={this.props.handleAddWork} className="add-btn">
+          Add
+        </button>
       </section>
     );
   }

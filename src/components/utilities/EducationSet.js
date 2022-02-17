@@ -7,7 +7,7 @@ export default class EducationSet extends Component {
     const { course, university, startDate, endDate, description } =
       this.props.education;
     return (
-      <div>
+      <div className="inputs-container">
         <Input
           value={course}
           handleChange={this.props.handleChange}
@@ -42,7 +42,9 @@ export default class EducationSet extends Component {
           placeholder={"Some description?"}
           name={"description"}
         />
-        <button onClick={this.props.handleClick}>Delete</button>
+        <button onClick={this.props.handleClick} className="delete-btn">
+          Delete
+        </button>
       </div>
     );
   }

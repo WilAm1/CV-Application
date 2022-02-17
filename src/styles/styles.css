@@ -1,0 +1,161 @@
+:root {
+  --accent-color: #112d4e;
+  --light-accent: #3f72af;
+  --light-white: #f9f7f7;
+  --dark-white: #dbe2ef;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  /* border: 1px red solid; */
+}
+
+::selection {
+  color: var(--dark-white);
+  background: var(--light-accent);
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: var(--dark-white);
+  font-family: "Roboto", Arial, sans-serif;
+}
+h3 {
+  font-size: 1.2em;
+  color: var(--light-accent);
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea {
+  border: var(--light-accent) 1px solid;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+}
+textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+}
+/* Header */
+header {
+  padding: 10px;
+  height: 15vh;
+  color: var(--light-white);
+  background-color: var(--accent-color);
+  border-bottom: var(--light-white) 2px solid;
+  text-align: center;
+}
+main {
+  display: flex;
+  flex-flow: wrap row;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+main > * {
+  width: max(600px, 40vw);
+}
+/* Form Section */
+section#form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px var(--accent-color) solid;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+section#preview-section {
+  border: 1px black solid;
+  padding: 60px 30px;
+  min-height: 850px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+#preview-section > * {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Personal Info */
+section#personal-section,
+section#education-section,
+section#experience-section,
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+section#personal-section,
+section#education-section,
+section#experience-section {
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Personal Preview */
+#preview-personal {
+  display: grid;
+  grid-template: repeat(3, auto) / minmax(200px, 1fr) auto;
+  gap: 30px;
+}
+#name {
+  font-size: 1.5em;
+  color: var(--accent-color);
+  font-weight: 800;
+}
+#job-title {
+  grid-row: 2/3;
+  font-size: 1.2em;
+  color: var(--accent-color);
+  opacity: 0.7;
+}
+.personal-details {
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.8em;
+}
+
+#personal-desc {
+  border-top: solid 4px var(--light-accent);
+  padding-top: 30px;
+
+  grid-row: 3/-1;
+  grid-column: 1/-1;
+}
+
+/* Details */
+.main-detail {
+  display: flex;
+  gap: 40px;
+}
+.dates {
+  width: 25%;
+}
+/* Font Classes */
+.light-font {
+  font-weight: 300;
+}
+.bold-text {
+  font-weight: bold;
+}
+/* Buttons */
+.delete-btn,
+.add-btn {
+  font-weight: bold;
+  background-color: var(--dark-white);
+  border: solid 1px var(--accent-color);
+  width: 100px;
+  padding: 10px 0;
+}

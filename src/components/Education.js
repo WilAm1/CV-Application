@@ -11,7 +11,7 @@ export default class Education extends Component {
   }
   render() {
     return (
-      <section>
+      <section id="education-section">
         <h3>Education</h3>
         {this.props.education.map((obj, idx) => (
           <EducationSet
@@ -22,7 +22,9 @@ export default class Education extends Component {
             handleClick={() => this.props.handleDeleteEducation(idx)}
           />
         ))}
-        <button onClick={this.props.handleAddEducation}>Add</button>
+        <button onClick={this.props.handleAddEducation} className="add-btn">
+          Add
+        </button>
       </section>
     );
   }

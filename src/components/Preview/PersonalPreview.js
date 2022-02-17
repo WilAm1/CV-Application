@@ -14,9 +14,9 @@ export default class PersonalPreview extends Component {
     } = this.props.person;
     return (
       <section id="preview-personal">
-        <h1>{lName + " " + fName + " " + mName}</h1>
-        <h2>{jobTitle}</h2>
-        <p>{description}</p>
+        <h2 id="name">{lName + " " + fName + " " + mName}</h2>
+        <h2 id="job-title">{jobTitle}</h2>
+        <p className="light-font">{description}</p>
         <div className="personal-details">
           <p>{address}</p>
           <p>{number}</p>

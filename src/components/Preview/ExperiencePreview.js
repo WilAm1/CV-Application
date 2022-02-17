@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExperienceSubSection from "./ExpSubSection";
+import ExperienceSubSection from "./ExperienceSubSection";
 
 export default class ExperiencePreview extends Component {
   render() {
