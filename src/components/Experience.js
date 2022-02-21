@@ -20,7 +20,7 @@ export default function Experience(props) {
           handleClick={() => handleDeleteWork(idx)}
         />
       ))}
-      <button onClick={handleAddWork} className="add-btn">
+      <button onClick={handleAddWork} className="add-btn btn">
         Add
       </button>
     </section>

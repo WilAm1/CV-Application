@@ -1,7 +1,7 @@
 const CV_DATA = {
   personalInfo: {
     lName: "D'arc",
-    fName: "Jeanne",
+    fName: "Jannu",
     mName: "Alter",
     jobTitle: "Web Developer",
     address: "Domrey, France",
@@ -16,7 +16,7 @@ const CV_DATA = {
       university: "University of France",
       startDate: "2021",
       endDate: "2022",
-      description: "Lorem Somthing",
+      description: "Student Council President (or something)",
       id: "1123",
     },
   ],
@@ -26,7 +26,7 @@ const CV_DATA = {
       position: "Web Developer",
       startDate: "1002",
       endDate: "1052",
-      description: "Lorem Ipsum Frenchie",
+      description: "Captain of the holy knights ",
       id: "1231d",
     },
   ],

@@ -44,7 +44,7 @@ export default function ExperienceSet({
         placeholder={"Tells us about your work"}
         name={"description"}
       />
-      <button onClick={handleClick} className="delete-btn">
+      <button onClick={handleClick} className="delete-btn btn">
         Delete
       </button>
     </div>

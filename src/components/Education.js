@@ -23,7 +23,7 @@ export default function Education(props) {
           handleClick={() => handleDeleteEducation(idx)}
         />
       ))}
-      <button onClick={handleAddEducation} className="add-btn">
+      <button onClick={handleAddEducation} className="add-btn btn">
         Add
       </button>
     </section>

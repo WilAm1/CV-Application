@@ -43,11 +43,10 @@ textarea {
 }
 /* Header */
 header {
-  padding: 10px;
-  height: 15vh;
+  padding: 40px 0;
   color: var(--light-white);
   background-color: var(--accent-color);
-  border-bottom: var(--light-white) 2px solid;
+  border-bottom: var(--light-white) 5px solid;
   text-align: center;
 }
 main {
@@ -75,9 +74,9 @@ section#preview-section {
   border: 1px black solid;
   padding: 60px 30px;
   min-height: 850px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.3);
   background-color: white;
+  max-width: 700px;
 }
 #preview-section > * {
   margin-bottom: 40px;
@@ -151,11 +150,18 @@ section#experience-section {
   font-weight: bold;
 }
 /* Buttons */
-.delete-btn,
-.add-btn {
+.btn {
   font-weight: bold;
-  background-color: var(--dark-white);
-  border: solid 1px var(--accent-color);
+  background-color: var(--light-accent);
+  border: solid 1px var(--light-accent);
   width: 100px;
   padding: 10px 0;
+  color: var(--light-white);
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: solid 1px var(--light-accent);
+  color: var(--light-accent);
 }

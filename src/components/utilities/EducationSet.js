@@ -40,7 +40,7 @@ export default function EducationSet({ education, handleChange, handleClick }) {
         placeholder={"Some description?"}
         name={"description"}
       />
-      <button onClick={handleClick} className="delete-btn">
+      <button onClick={handleClick} className="delete-btn btn">
         Delete
       </button>
     </div>

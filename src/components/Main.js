@@ -93,7 +93,6 @@ export default function Main(props) {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setPersonalInfo({
-      // Or use Object.assign({}, personalInfo, {[name]: value,})
       ...personalInfo,
       [name]: value,
     });
