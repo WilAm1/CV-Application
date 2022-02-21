@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Input extends Component {
-  render() {
-    return (
-      <input
-        onChange={this.props.handleChange}
-        type={this.props.type}
-        value={this.props.value}
-        placeholder={this.props.placeholder}
-        name={this.props.name}
-      ></input>
-    );
-  }
+export default function Input({
+  handleChange,
+  type,
+  value,
+  placeholder,
+  name,
+}) {
+  return (
+    <input
+      onChange={handleChange}
+      type={type}
+      value={value}
+      placeholder={placeholder}
+      name={name}
+    ></input>
+  );
 }

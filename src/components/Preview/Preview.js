@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import ExperiencePreview from "./ExperiencePreview";
 import PersonalPreview from "./PersonalPreview";
 import EducationPreview from "./EducationPreview";
-export default class Preview extends Component {
-  render() {
-    return (
-      <section id="preview-section">
-        <PersonalPreview person={this.props.person} />
-        <ExperiencePreview experience={this.props.experience} />
-        <EducationPreview education={this.props.education} />
-      </section>
-    );
-  }
+
+export default function Preview({ person, experience, education }) {
+  return (
+    <section id="preview-section">
+      <PersonalPreview person={person} />
+      <ExperiencePreview experience={experience} />
+      <EducationPreview education={education} />
+    </section>
+  );
 }
